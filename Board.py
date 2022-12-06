@@ -6,11 +6,12 @@ class Board:
         np.random.shuffle(self.mines)
         self.mines = self.mines.reshape((8,8))
         self.clues = convolve(self.mines, np.array([[1,1,1],[1,0,1],[1,1,1]]), 'same')
-        self.visible = np.zeros((8, 8))
+        self.visible = np.zeros((8, 8), dtype=int)
     def getBoard(self):
         return self.clues*self.visible
     def getMoveResults(self, row, col):
-        if self.mines[row, col]==1: return True
+        if sum(sum(self.visible)) == 54: return True
+        if self.mines[row, col]==1: return False
         self._BFS(row, col)
         return self.getBoard()
     def _BFS(self, row, col):
