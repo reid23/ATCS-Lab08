@@ -21,10 +21,11 @@ class Button(GraphicsObject):
         self.rect.setFill('lightgray')
         self.label = Text(center, label)
         self.deactivate()
-        
+    
+
     async def onNextClick(self, f, *args, **kwargs):
         while True:
-            if self.clicked(await self.win.getMouse()):
+            if self.clicked(self.win.getMouse()):
                 return f(*args, **kwargs)
 
     def clicked(self, p):
@@ -59,8 +60,8 @@ class Button(GraphicsObject):
         return [self.label, self.rect]
     def draw(self, win=None):
         if win!=None: self.win=win
-        self.label.draw(self.win)
         self.rect.draw(self.win)
+        self.label.draw(self.win)
     def undraw(self):
         self.label.undraw()
         self.rect.undraw()
