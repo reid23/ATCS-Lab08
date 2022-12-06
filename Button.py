@@ -21,12 +21,6 @@ class Button(GraphicsObject):
         self.rect.setFill('lightgray')
         self.label = Text(center, label)
         self.deactivate()
-    
-
-    async def onNextClick(self, f, *args, **kwargs):
-        while True:
-            if self.clicked(self.win.getMouse()):
-                return f(*args, **kwargs)
 
     def clicked(self, p):
         "Returns true if button active and p is inside"
