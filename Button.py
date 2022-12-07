@@ -54,13 +54,8 @@ class Button(GraphicsObject):
         return [self.label, self.rect]
     def draw(self, win=None):
         if win!=None: self.win=win
-<<<<<<< HEAD
         self.rect.draw(self.win)
         self.label.draw(self.win)
-=======
-        self.label.draw(self.win)
-        self.rect.draw(self.win)
->>>>>>> 03bb8258e0088564fab1093f56c413f91154964c
     def undraw(self):
         self.label.undraw()
         self.rect.undraw()
