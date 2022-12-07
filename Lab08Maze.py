@@ -1,3 +1,9 @@
+'''
+This file contains the backend for the Maze problem.
+
+It was written entirely by Isaac.
+'''
+
 import random
 
 # Function that performs DFS starting at room (i, j) in an array with dimensions n by m
