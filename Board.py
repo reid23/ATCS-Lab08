@@ -19,9 +19,9 @@ class Board:
         Returns:
             bool | np.array: either a bool or numpy array. Bool if the game is over, True if won, False if lost. Otherwise ndarray describing what should be drawn.
         """
-        if sum(sum(self.visible)) == 54: return True #if all non-mines are visible, the player has won
         if self.mines[row, col]==1: return False #if square clicked is a mine, the player has lost
-        self._DFS(row, col) #otherwise, do the whole reveal thing, showing all the squares
+        self._BFS(row, col) #otherwise, do the whole reveal thing, showing all the squares
+        if sum(sum(self.visible)) == 54: return True #if all non-mines are visible, the player has won
         return self.getBoard() #then return the board in case it's useful.
     def getBoard(self):
         """returns a 8x8 array describing the current board state. Squares' values are the number on them. If the value is -1, the square is not visible yet.
@@ -57,9 +57,40 @@ class Board:
                 self._DFS(*i)
             elif self.visible[i[0], i[1]]==0: # if it does have adjacent mines, just set it to visible and don't recurse further.
                 self.visible[i[0], i[1]]=1
+    @staticmethod
+    def neighbors(row, col):
+        return ( #get all neighbors
+            (row+1, col-1),
+            (row+1, col),
+            (row+1, col+1),
+            (row, col+1),
+            (row, col-1),
+            (row-1, col-1),
+            (row-1, col),
+            (row-1, col+1),
+        )
 
     def _BFS(self, row, col):
-        pass
+        q = [(row, col)]
+        visited = set()
+        while len(q)>0:
+            cur = q.pop(0)
+            self.visible[cur[0], cur[1]] = 1
+            if self.clues[cur[0], cur[1]] > 0:
+                continue
+            for cell in Board.neighbors(*cur):
+                if cell in visited:
+                    print(cell, 'already visited')
+                    continue
+                if not (0<=cell[0]<=7 and 0<=cell[1]<=7):
+                    print(cell, 'out of bounds')
+                    continue
+                else:
+                    print(cell, 'not visited yet')
+                    visited.add(cell)
+                q.append(cell)
+            
+
         
 
 if __name__=='__main__':
