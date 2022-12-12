@@ -19,9 +19,9 @@ class Board:
         Returns:
             bool | np.array: either a bool or numpy array. Bool if the game is over, True if won, False if lost. Otherwise ndarray describing what should be drawn.
         """
-        if sum(sum(self.visible)) == 54: return True #if all non-mines are visible, the player has won
         if self.mines[row, col]==1: return False #if square clicked is a mine, the player has lost
         self._DFS(row, col) #otherwise, do the whole reveal thing, showing all the squares
+        if sum(sum(self.visible)) == 54: return True #if all non-mines are visible, the player has won
         return self.getBoard() #then return the board in case it's useful.
     def getBoard(self):
         """returns a 8x8 array describing the current board state. Squares' values are the number on them. If the value is -1, the square is not visible yet.
