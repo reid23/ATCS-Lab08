@@ -57,6 +57,9 @@ class Board:
                 self._DFS(*i)
             elif self.visible[i[0], i[1]]==0: # if it does have adjacent mines, just set it to visible and don't recurse further.
                 self.visible[i[0], i[1]]=1
+
+    def _BFS(self, row, col):
+        pass
         
 
 if __name__=='__main__':
