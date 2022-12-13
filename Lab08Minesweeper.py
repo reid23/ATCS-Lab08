@@ -84,7 +84,7 @@ def main():
                 boardCells[clickX][clickY].setRectFill("white")
                 boardCells[clickX][clickY].setTextMessage("M")
                 boardCells[clickX][clickY].draw(win)
-                # Wait two seconds so the player can see the mine
+                # Wait 2 seconds so the player can see the mine
                 time.sleep(2)
                 # Below code is exact same as win case, but the message is a losing one
                 for i in range(8):
@@ -118,8 +118,6 @@ def main():
                 # Loops through all cells
                 for i in range(8):
                     for j in range(8):
-                        # Undraw the cell
-                        boardCells[i][j].undraw()
                         # If the cell hasn't been clicked, set it to gray
                         if board[i][j] == -1:
                             boardCells[i][j].setRectFill("gray")
@@ -129,8 +127,6 @@ def main():
                         # If the cell has bombs as neighbors, display the number of bombs
                         if board[i][j] > 0:
                             boardCells[i][j].setTextMessage(str(board[i][j]))
-                        # Draw the edited cell
-                        boardCells[i][j].draw(win)
     # Graphics window closes with one last mouse click
     win.getMouse()
     win.close()
