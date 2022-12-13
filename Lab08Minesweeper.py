@@ -1,5 +1,7 @@
 '''
+Isaac and Reid
 Contains GUI for minesweeper.
+
 Done entirely by Isaac.
 '''
 

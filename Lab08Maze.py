@@ -1,4 +1,5 @@
 '''
+Isaac and Reid
 This file contains the GUI for the Maze problem.
 
 It was written entirely by Reid.

@@ -1,3 +1,9 @@
+'''
+Isaac and Reid
+
+This module was written entirely by Isaac.
+'''
+
 from graphics import *
 
 # Class for cells in minesweeper

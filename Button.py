@@ -1,3 +1,9 @@
+'''
+Isaac and Reid
+
+This module was written entirely by Reid.
+'''
+
 from graphics import *
 
 class Button(GraphicsObject):

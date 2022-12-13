@@ -1,4 +1,5 @@
 '''
+Isaac and Reid
 This file contains the backend for minesweeper. It is a board class which does all the computations and stores the game's state.
 
 Written entirely by Reid
