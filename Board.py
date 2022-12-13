@@ -4,6 +4,7 @@ This file contains the backend for minesweeper. It is a board class which does a
 
 Written entirely by Reid
 '''
+
 import numpy as np
 from scipy.signal import convolve # if this doesn't work, do `~$ pip install scipy` or similar depending on your pip/python setup
 class Board:
