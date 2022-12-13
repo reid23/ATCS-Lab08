@@ -80,10 +80,8 @@ def main():
             # Player loses
             elif result is False:
                 # Update the clicked cell to indicate a mine
-                boardCells[clickX][clickY].undraw()
                 boardCells[clickX][clickY].setRectFill("white")
                 boardCells[clickX][clickY].setTextMessage("M")
-                boardCells[clickX][clickY].draw(win)
                 # Wait 2 seconds so the player can see the mine
                 time.sleep(2)
                 # Below code is exact same as win case, but the message is a losing one
